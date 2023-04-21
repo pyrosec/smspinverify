@@ -1,0 +1,28 @@
+{
+  "name": "smspinverify",
+  "version": "0.1.0",
+  "description": "smspinverify.com API TypeScript client",
+  "main": "lib/index.js",
+  "bin": {
+    "smspinverify": "./bin/smspinverify.js"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": "https://git.pyrosec.gg/project-ghost/smspinverify",
+  "author": "project-ghost",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "axios": "^1.2.0",
+    "change-case": "^4.1.2",
+    "fs-extra": "^10.1.0",
+    "gzip-js": "^0.3.2",
+    "querystring": "^0.2.1",
+    "winston": "^3.8.2"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.9",
+    "typescript": "^4.9.3"
+  }
+}
