@@ -1,4 +1,4 @@
-import axios from "axios";
+import fetch from "node-fetch";
 import qs from 'querystring';
 import { unzip } from "gzip-js";
 
@@ -23,20 +23,13 @@ export class SmsPinVerifyClient {
     return this.fromObject(JSON.parse(s));
   }
   async _call(pathname, data = {}, headers = {}) {
-    const response = await axios.get((this.constructor as any).BASE_URL + pathname + '?' + qs.encode(Object.assign({
+    return await (await fetch((this.constructor as any).BASE_URL + pathname + '?' + qs.encode(Object.assign({
       customer: this.apiKey
-    }, data)), {
-      headers: {
-//	'Accept-Encoding': 'gzip, deflate, br'
-
-      },
-      responseType: 'arraybuffer'
-    });
-    return Object.assign({}, response, { data: Buffer.from(unzip(response.data)).toString('utf8') });
+    }, data)))).text()
   }
   async checkBalance() {
     const response = await this._call('/get_balance.php');
-    return response.data;
+    return JSON.parse(response);
   }
   async checkRates({
     country
@@ -44,11 +37,11 @@ export class SmsPinVerifyClient {
     const response = await this._call('/get_rates.php', {
       country 
     });
-    return response.data;
+    return JSON.parse(response);
   }
   async getHistory() {
     const response = await this._call('/get_history.php');
-    return response.data;
+    return JSON.parse(response);
   }
   async getSms({
     number,
@@ -60,7 +53,7 @@ export class SmsPinVerifyClient {
       number,
       app
     });
-    return response.data;
+    return response;
   }
   async getNumber({
     app,
@@ -70,6 +63,6 @@ export class SmsPinVerifyClient {
       app,
       country
     });
-    return response.data;
+    return response;
   }
 }

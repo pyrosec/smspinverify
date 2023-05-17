@@ -8,9 +8,7 @@ export declare class SmsPinVerifyClient {
     toJSON(): string;
     static fromObject(o: any): SmsPinVerifyClient;
     static fromJSON(s: any): SmsPinVerifyClient;
-    _call(pathname: any, data?: {}, headers?: {}): Promise<import("axios").AxiosResponse<any, any> & {
-        data: string;
-    }>;
+    _call(pathname: any, data?: {}, headers?: {}): Promise<any>;
     checkBalance(): Promise<any>;
     checkRates({ country }: {
         country: any;
