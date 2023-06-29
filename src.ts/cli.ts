@@ -4,7 +4,7 @@ import { camelCase } from "change-case";
 import fs from "fs-extra";
 import util from "util";
 import "setimmediate";
-import mkdirp from "mkdirp"
+import { mkdirp } from "mkdirp"
 import path from "path";
 import { getLogger } from "./logger";
 
