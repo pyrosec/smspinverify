@@ -76,6 +76,11 @@ export class SmsPinVerifyClient {
       app,
       country
     });
+    this.last = {
+      app,
+      country,
+      number: response
+    };
     return response;
   }
 }

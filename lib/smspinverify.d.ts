@@ -10,7 +10,7 @@ export declare class SmsPinVerifyClient {
     toJSON(): string;
     static fromObject(o: any): SmsPinVerifyClient;
     static fromJSON(s: any): SmsPinVerifyClient;
-    _call(pathname: any, data?: {}, headers?: {}): Promise<string>;
+    _call(pathname: any, data?: {}, headers?: {}): Promise<any>;
     checkBalance(): Promise<any>;
     checkRates({ country }: {
         country: any;
@@ -20,9 +20,9 @@ export declare class SmsPinVerifyClient {
         number: any;
         country: any;
         app: any;
-    }): Promise<string>;
+    }): Promise<any>;
     getNumber({ app, country }: {
         app: any;
         country: any;
-    }): Promise<string>;
+    }): Promise<any>;
 }
