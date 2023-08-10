@@ -37,6 +37,7 @@ export async function callAPI(command, data) {
   delete data.json;
   if (!smspinverify[camelCommand]) throw Error('command not foud: ' + command);
   const result = await smspinverify[camelCommand](data);
+  if (camelCommand === 'getNumber') await saveSession(smspinverify);
   if (json) console.log(JSON.stringify(result, null, 2));
   else logger.info(result);
   return result;
